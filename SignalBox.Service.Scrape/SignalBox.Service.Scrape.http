@@ -1,0 +1,73 @@
+@SignalBox.Service.Scrape_HostAddress = http://localhost:5285
+
+# Scrape a simple web page (example.com)
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://example.com
+Accept: application/json
+
+###
+
+# Scrape Microsoft .NET documentation
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://docs.microsoft.com/en-us/dotnet/
+Accept: application/json
+
+###
+
+# Scrape GitHub README page
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://github.com/microsoft/dotnet
+Accept: application/json
+
+###
+
+# Scrape a blog post
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://devblogs.microsoft.com/dotnet/
+Accept: application/json
+
+###
+
+# Scrape Stack Overflow question
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://stackoverflow.com/questions/tagged/asp.net-core
+Accept: application/json
+
+###
+
+# Scrape Wikipedia article
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://en.wikipedia.org/wiki/ASP.NET_Core
+Accept: application/json
+
+###
+
+# Test with invalid URL (should return error)
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=not-a-valid-url
+Accept: application/json
+
+###
+
+# Test with non-HTTP URL (should return error)
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=ftp://example.com
+Accept: application/json
+
+###
+
+# Test with missing URL parameter (should return error)
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape
+Accept: application/json
+
+###
+
+# Test with URL that might not exist (404 error)
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://httpstat.us/404
+Accept: application/json
+
+###
+
+# Scrape a news article
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://www.bbc.com/news
+Accept: application/json
+
+###
+
+# Scrape technical documentation
+GET {{SignalBox.Service.Scrape_HostAddress}}/scrape?url=https://learn.microsoft.com/en-us/aspnet/core/
+Accept: application/json
+
+###

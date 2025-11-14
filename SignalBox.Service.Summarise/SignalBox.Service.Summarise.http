@@ -1,0 +1,41 @@
+@SignalBox.Service.Summarise_HostAddress = http://localhost:5285
+
+# Test the summarise endpoint with sample markdown content
+POST {{SignalBox.Service.Summarise_HostAddress}}/summarise
+Content-Type: application/json
+
+{
+  "text": "# Project Overview\n\nThis is a comprehensive project documentation that covers multiple aspects of our system architecture.\n\n## Features\n\n- **Microservices Architecture**: The system is built using a microservices approach with multiple independent services.\n- **API Gateway**: Centralized entry point for all client requests.\n- **Service Discovery**: Automatic service registration and discovery mechanism.\n- **Load Balancing**: Distributes incoming requests across multiple service instances.\n\n## Technical Stack\n\n### Backend Technologies\n- .NET 8\n- ASP.NET Core\n- Entity Framework Core\n- SignalR for real-time communication\n\n### Database\n- PostgreSQL for primary data storage\n- Redis for caching\n- MongoDB for document storage\n\n### Infrastructure\n- Docker containers\n- Kubernetes orchestration\n- Azure cloud services\n- CI/CD pipelines with GitHub Actions\n\n## Service Architecture\n\nThe system consists of several microservices:\n\n1. **User Service**: Handles user authentication and profile management\n2. **Product Service**: Manages product catalog and inventory\n3. **Order Service**: Processes customer orders and payments\n4. **Notification Service**: Sends email and SMS notifications\n5. **Analytics Service**: Collects and processes usage metrics\n\n## Security Considerations\n\n- JWT token-based authentication\n- OAuth 2.0 integration\n- API rate limiting\n- Input validation and sanitization\n- HTTPS encryption for all communications\n\n## Performance Optimization\n\n- Caching strategies at multiple levels\n- Database query optimization\n- Asynchronous processing for heavy operations\n- CDN for static content delivery\n\n## Monitoring and Logging\n\n- Application Performance Monitoring (APM)\n- Centralized logging with ELK stack\n- Health checks and alerting\n- Metrics collection and visualization\n\nThis documentation provides a high-level overview of the system architecture and key components."
+}
+
+###
+
+# Test with simpler markdown content
+POST {{SignalBox.Service.Summarise_HostAddress}}/summarise
+Content-Type: application/json
+
+{
+  "text": "# Getting Started\n\nWelcome to our application! This guide will help you get up and running quickly.\n\n## Installation\n\n1. Download the installer from our website\n2. Run the installation wizard\n3. Follow the on-screen instructions\n\n## First Steps\n\n- Create your account\n- Verify your email address\n- Complete your profile\n\nThat's it! You're ready to start using the application."
+}
+
+###
+
+# Test with empty content (should return error)
+POST {{SignalBox.Service.Summarise_HostAddress}}/summarise
+Content-Type: application/json
+
+{
+  "text": ""
+}
+
+###
+
+# Test with malformed JSON (should return error)
+POST {{SignalBox.Service.Summarise_HostAddress}}/summarise
+Content-Type: application/json
+
+{
+  "invalid": "This request is missing the required 'text' field"
+}
+
+###

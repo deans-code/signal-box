@@ -1,0 +1,18 @@
+<Solution>
+  
+  <Folder Name="/Service/">
+    <Project Path="SignalBox.Service.Scrape/SignalBox.Service.Scrape.csproj" />
+    <Project Path="SignalBox.Service.Summarise/SignalBox.Service.Summarise.csproj" />
+    <Project Path="SignalBox.Service.Extract.FamilyEvents/SignalBox.Service.Extract.FamilyEvents.csproj" />    
+  </Folder>
+
+  <Folder Name="/Orchestration/">
+    <Project Path="SignalBox.Orchestration.WhatsOn/SignalBox.Orchestration.WhatsOn.csproj" />
+  </Folder>
+    
+  <Project Path="SignalBox.ServiceDefaults/SignalBox.ServiceDefaults.csproj" />
+  
+  <Project Path="SignalBox.AppHost/SignalBox.AppHost.csproj" />  
+  <Project Path="SignalBox.FrontEnd.Web/SignalBox.FrontEnd.Web.csproj" />
+    
+</Solution>

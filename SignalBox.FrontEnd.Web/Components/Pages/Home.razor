@@ -1,0 +1,91 @@
+﻿@page "/"
+@attribute [StreamRendering(true)]
+@attribute [OutputCache(Duration = 5)]
+
+@inject WhatsOnApiClient WhatsOnApi
+
+<PageTitle>Family Dashboard</PageTitle>
+
+<MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
+    <MudGrid>
+        <MudItem xs="12" sm="6" md="4">            
+            @if (whatsOn == null)
+            {
+                <MudPaper Elevation="2" Class="pa-4" Style="height: 530px;">
+                    <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+                </MudPaper>
+            }
+            else
+            {    
+                <MudCard Elevation="2" Style="height: 530px;">
+                    <MudCardMedia Image="@($"images/{DateTime.Now.ToString("MMMM").ToLower()}.jpg")" Height="250" />
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5">What's on?</MudText>
+                        <MudText Typo="Typo.body1">@whatsOn.Summary</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Href="@whatsOn.TargetUrl" Color="Color.Primary">Learn more</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            }            
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 530px;">
+                @if (whatsOn == null)
+                {
+                    <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+                }
+                else
+                {  
+                    <MudList T="string">
+                        @foreach (FamilyEvent familyEvent in whatsOn.FamilyEvents)
+                        {                                               
+                            <MudListItem Icon="@Icons.Material.Filled.Event">                            
+                                <MudStack Spacing="0">                                    
+                                    <MudText Typo="Typo.h6" HtmlTag="h3">@familyEvent.Title</MudText>
+                                    <MudText Typo="Typo.subtitle2" Color="Color.Primary">@familyEvent.Location</MudText>
+                                    <MudText Typo="Typo.subtitle2" Color="Color.Primary">@familyEvent.DateRange</MudText>
+                                </MudStack>
+                            </MudListItem>
+                        }                    
+                    </MudList>
+                }
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">3</MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">4</MudPaper>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">5</MudPaper>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 100%">6</MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">7</MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">8</MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">9</MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code {    
+
+    private WhatsOnResult? whatsOn;
+
+    protected override async Task OnInitializedAsync()
+    {
+        whatsOn = await WhatsOnApi.GetWhatsOnAsync();
+    }
+}
