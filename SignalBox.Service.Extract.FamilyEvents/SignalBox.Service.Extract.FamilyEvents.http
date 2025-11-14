@@ -1,0 +1,10 @@
+@SignalBox.Service.Extract.FamilyEvents_HostAddress = http://localhost:5156
+
+POST {{SignalBox.Service.Extract.FamilyEvents_HostAddress}}/extract/familyevents
+Content-Type: application/json
+
+{
+  "text": "<html><body><div id='eventcontainer'><div class='details'>Sample event content</div></div></body></html>"
+}
+
+###

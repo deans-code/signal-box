@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.5.1" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>6ab9094f-f9b8-4836-a9e5-9b09b85594cd</UserSecretsId>
+  </PropertyGroup>
+
+  <!-- Infrastructure -->
+  <ItemGroup>    
+    <ProjectReference Include="..\SignalBox.FrontEnd.Web\SignalBox.FrontEnd.Web.csproj" />    
+  </ItemGroup>
+
+  <!-- Services -->
+  <ItemGroup>
+    <ProjectReference Include="..\SignalBox.Service.Scrape\SignalBox.Service.Scrape.csproj" />
+    <ProjectReference Include="..\SignalBox.Service.Summarise\SignalBox.Service.Summarise.csproj" />    
+    <ProjectReference Include="..\SignalBox.Service.Extract.FamilyEvents\SignalBox.Service.Extract.FamilyEvents.csproj" />    
+  </ItemGroup>
+
+  <!-- Orchestration -->
+  <ItemGroup>    
+    <ProjectReference Include="..\SignalBox.Orchestration.WhatsOn\SignalBox.Orchestration.WhatsOn.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.1" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="9.5.1" />
+  </ItemGroup>
+
+</Project>

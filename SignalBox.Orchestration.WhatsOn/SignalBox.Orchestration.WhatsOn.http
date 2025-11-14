@@ -1,0 +1,12 @@
+@SignalBox.Orchestration.WhatsOn_HostAddress = http://localhost:5091
+
+# Test the whatson endpoint (uses configured URL from appsettings)
+GET {{SignalBox.Orchestration.WhatsOn_HostAddress}}/whatson
+Accept: application/json
+
+###
+
+GET {{SignalBox.Orchestration.WhatsOn_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

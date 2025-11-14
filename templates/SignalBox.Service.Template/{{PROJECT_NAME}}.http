@@ -1,0 +1,11 @@
+@{{PROJECT_NAME}}_HostAddress = http://localhost:{{PORT_NUMBER}}
+
+POST {{{{PROJECT_NAME}}_HostAddress}}/process
+Accept: application/json
+Content-Type: application/json
+
+{
+  "input": "test input"
+}
+
+###
