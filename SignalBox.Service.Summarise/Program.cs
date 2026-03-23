@@ -48,8 +48,7 @@ app.UseHttpsRedirection();
 app.MapPost("/process", SummariseHandlerAsync)
     .WithName("Summarise")
     .WithSummary("Given markdown content, generate a summary")
-    .WithDescription("Uses an AI model to create a concise summary of the provided markdown text.")
-    .WithOpenApi();
+    .WithDescription("Uses an AI model to create a concise summary of the provided markdown text.");
 
 app.MapDefaultEndpoints();
 

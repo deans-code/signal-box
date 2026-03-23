@@ -34,8 +34,7 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/process", WhatsOnHandlerAsync)
     .WithName("whatson")
     .WithSummary("Get a summary of what's on in the local area")
-    .WithDescription("Gets a list of events for families in the local area and generates a summary.")
-    .WithOpenApi();
+    .WithDescription("Gets a list of events for families in the local area and generates a summary.");
 
 app.MapDefaultEndpoints();
 

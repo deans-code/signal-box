@@ -36,8 +36,7 @@ app.UseHttpsRedirection();
 app.MapPost("/process", ScrapeHandlerAsync)
     .WithName("Scrape")
     .WithSummary("Scrape a web page")
-    .WithDescription("Fetches HTML content from the provided URL.")
-    .WithOpenApi();
+    .WithDescription("Fetches HTML content from the provided URL.");
 
 app.MapDefaultEndpoints();
 

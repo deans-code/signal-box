@@ -29,8 +29,7 @@ app.UseHttpsRedirection();
 app.MapPost("/process", ExtractFamilyEventsHandlerAsync)
     .WithName("extractfamilyevents")
     .WithSummary("Extracts events from HTML content")
-    .WithDescription("Extracts events from HTML content, for HTML which adheres to a predefined format.")
-    .WithOpenApi();
+    .WithDescription("Extracts events from HTML content, for HTML which adheres to a predefined format.");
 
 app.MapDefaultEndpoints();
 
