@@ -110,7 +110,7 @@ Build the projects.
 
 ## :zap: Features
 
-### Whats on widget
+### What's on widget
 
 - The application gathers data regarding events currently being advertised in the local area.
 - It passes the data to a local language model to summarise the events.
